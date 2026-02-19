@@ -1,12 +1,11 @@
-"use client";
+"use client"; 
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
 
 export const Contact = () => {
   return (
     <section className="py-32 px-6 border-t border-white/5 bg-[#050505] relative overflow-hidden">
-      {/* Subtle Background Accent */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-125 h-125 bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -26,21 +25,21 @@ export const Contact = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Contact Cards */}
+            {/* FIX: Corrected your personal links */}
             <ContactCard 
-              href="mailto:hasham@example.com" 
+              href="mailto:hashamrao0@gmail.com" 
               label="Email" 
               value="Get in touch" 
               icon={<Mail className="text-blue-500" />} 
             />
             <ContactCard 
-              href="https://linkedin.com/in/your-profile" 
+              href="https://www.linkedin.com/in/hasham-farhat-4a961a297/" 
               label="LinkedIn" 
               value="Connect with me" 
               icon={<Linkedin className="text-blue-500" />} 
             />
             <ContactCard 
-              href="https://github.com/your-username" 
+              href="https://github.com/HashamFarhat" 
               label="GitHub" 
               value="View my repos" 
               icon={<Github className="text-blue-500" />} 
@@ -52,7 +51,7 @@ export const Contact = () => {
           </div>
         </div>
 
-        <footer className="mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm font-mono uppercase tracking-widest">
+        <footer className="mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm font-mono uppercase tracking-widest text-center md:text-left">
           <p>© 2026 HF Creatives</p>
           <p>Built with Next.js 15 & Framer Motion</p>
         </footer>
@@ -61,11 +60,11 @@ export const Contact = () => {
   );
 };
 
-// Helper Component for the "Premium" link cards
 const ContactCard = ({ href, label, value, icon }: { href: string; label: string; value: string; icon: React.ReactNode }) => (
   <motion.a
     href={href}
     target="_blank"
+    rel="noopener noreferrer" // Added for security
     whileHover={{ y: -5, backgroundColor: "rgba(255,255,255,0.08)" }}
     className="p-8 rounded-3xl bg-white/5 border border-white/10 group transition-all"
   >
