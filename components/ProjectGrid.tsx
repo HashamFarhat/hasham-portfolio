@@ -2,15 +2,15 @@
 import { motion } from "framer-motion";
 import { Zap, Globe, Activity, Smartphone, ShieldCheck, ArrowUpRight } from "lucide-react";
 
-// FIX 1: Exporting the array so app/project/[id]/page.tsx can see it
+// Exporting the array so app/project/[id]/page.tsx can access it
 export const projects = [
   { 
-    id: "automation", // Unique ID for routing
+    id: "automation",
     title: "AI & n8n Automation", 
     tag: "Automation", 
     icon: <Zap size={24} />, 
     desc: "Architecting autonomous AI agents and enterprise-grade n8n workflows.",
-    link: "/project/automation", // Dynamic internal link
+    link: "/project/automation",
     accent: "text-blue-600 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800",
     glow: "group-hover:shadow-blue-500/20"
   },
@@ -69,6 +69,7 @@ export const ProjectGrid = () => {
           >
             <div>
               <div className="flex justify-between items-center mb-8">
+                
                 <span className={`text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border ${project.accent}`}>
                   {project.tag}
                 </span>
@@ -77,22 +78,24 @@ export const ProjectGrid = () => {
                 </div>
               </div>
               
-              <h3 className="text-3xl font-extrabold tracking-tight mb-4 text-slate-900 dark:text-white leading-tight">
+              
+              <h3 className="text-3xl font-black tracking-tight mb-4 text-slate-900 dark:text-white leading-tight">
                 {project.title}
               </h3>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-semibold opacity-90">
+              
+              <p className="text-black dark:text-slate-200 leading-relaxed font-bold text-lg">
                 {project.desc}
               </p>
             </div>
             
-            <div className="mt-8 flex items-center justify-between">
+            <div className="mt-12 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="h-1 w-10 bg-blue-600 rounded-full group-hover:w-16 transition-all duration-500" />
+                <div className="h-1.5 w-10 bg-blue-600 rounded-full group-hover:w-16 transition-all duration-500" />
                 <span className="text-xs font-black uppercase tracking-tighter text-slate-900 dark:text-white">
                   View Case Study
                 </span>
               </div>
-              <ArrowUpRight size={20} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
+              <ArrowUpRight size={22} className="text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors" />
             </div>
           </motion.a>
         ))}
