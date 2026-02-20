@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Zap, Globe, Activity, Smartphone, ShieldCheck, ArrowUpRight } from "lucide-react";
 
-// Exporting the array so app/project/[id]/page.tsx can access it
+// FIX: Exported outside so dynamic pages work
 export const projects = [
   { 
     id: "automation",
@@ -29,7 +29,7 @@ export const projects = [
     title: "Smart Health Tracker", 
     tag: "Software Engineering", 
     icon: <Activity size={24} />, 
-    desc: "Full-stack web app with automated pill reminders and metric tracking.",
+    desc: "Full-stack web app with automated pill reminders and health metric tracking.",
     link: "/project/software",
     accent: "text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800",
     glow: "group-hover:shadow-emerald-500/20"
@@ -58,19 +58,19 @@ export const projects = [
 
 export const ProjectGrid = () => {
   return (
-    <section id="work" className="max-w-7xl mx-auto px-6 py-24 bg-background">
+    <section id="work" className="max-w-7xl mx-auto px-6 py-24 bg-background transition-colors duration-500">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, i) => (
           <motion.a
             key={i}
             href={project.link} 
             whileHover={{ y: -12 }}
-            className={`group relative p-10 rounded-[2.5rem] bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 transition-all duration-500 flex flex-col justify-between min-h-105 shadow-sm hover:shadow-2xl ${project.glow}`}
+            // Added shadow-xl for light mode depth
+            className={`group relative p-10 rounded-[2.5rem] bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 transition-all duration-500 flex flex-col justify-between min-h-[420px] shadow-xl dark:shadow-none hover:shadow-2xl ${project.glow}`}
           >
             <div>
               <div className="flex justify-between items-center mb-8">
-                
-                <span className={`text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border ${project.accent}`}>
+                <span className={`text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full border ${project.accent}`}>
                   {project.tag}
                 </span>
                 <div className={`${project.accent.split(' ')[0]} opacity-80 group-hover:opacity-100 transition-opacity`}>
@@ -78,12 +78,13 @@ export const ProjectGrid = () => {
                 </div>
               </div>
               
-              
+              {/* FIX: Forced text-slate-900 for Light Mode visibility */}
               <h3 className="text-3xl font-black tracking-tight mb-4 text-slate-900 dark:text-white leading-tight">
                 {project.title}
               </h3>
               
-              <p className="text-black dark:text-slate-200 leading-relaxed font-bold text-lg">
+              {/* FIX: Using text-slate-800 and font-bold for clear paragraphs */}
+              <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-bold text-lg opacity-100">
                 {project.desc}
               </p>
             </div>
