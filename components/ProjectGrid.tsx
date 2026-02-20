@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Zap, Globe, Activity, Smartphone, ShieldCheck, ArrowUpRight } from "lucide-react";
 
-// Exported outside to resolve the VS Code error
+// FIX: Exported outside so dynamic pages can read the data
 export const projects = [
   { 
     id: "automation",
@@ -29,7 +29,7 @@ export const projects = [
     title: "Smart Health Tracker", 
     tag: "Software Engineering", 
     icon: <Activity size={24} />, 
-    desc: "Full-stack web app with automated pill reminders and health metric tracking.",
+    desc: "Full-stack web app with automated pill reminders and metric tracking.",
     link: "/project/software",
     accent: "text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 border-emerald-600 dark:border-emerald-800",
     glow: "group-hover:shadow-emerald-500/40"
@@ -58,7 +58,7 @@ export const projects = [
 
 export const ProjectGrid = () => {
   return (
-    // Changed bg-background to a forced off-white for better card contrast
+    // FORCED: Off-white background creates contrast against pure white cards
     <section id="work" className="max-w-7xl mx-auto px-6 py-24 bg-[#f8f9fa] dark:bg-[#050505] transition-colors duration-500">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project, i) => (
@@ -66,7 +66,7 @@ export const ProjectGrid = () => {
             key={i}
             href={project.link} 
             whileHover={{ y: -15 }}
-            // Added high-contrast borders and heavy shadows for light mode
+            // FORCED: High-contrast borders and heavy shadows for light mode depth
             className={`group relative p-10 rounded-[2.5rem] bg-white dark:bg-white/5 border-2 border-slate-200 dark:border-white/10 transition-all duration-500 flex flex-col justify-between min-h-112.5 shadow-2xl dark:shadow-none ${project.glow}`}
           >
             <div>
@@ -79,13 +79,13 @@ export const ProjectGrid = () => {
                 </div>
               </div>
               
-              {/* FORCED: text-black and font-black for maximum headline visibility */}
+              {/* FORCED: text-black! and font-black for maximum headline contrast */}
               <h3 className="text-4xl font-black tracking-tight mb-6 text-black! dark:text-white! leading-tight">
                 {project.title}
               </h3>
               
-              {/* FORCED: High contrast text-slate-900 and font-bold for the body */}
-              <p className="text-slate-900! dark:text-slate-200! leading-relaxed font-bold text-lg italic">
+              {/* FORCED: High contrast text-slate-900! and font-bold for the body */}
+              <p className="text-slate-900! dark:text-slate-200! leading-relaxed font-bold text-lg">
                 {project.desc}
               </p>
             </div>
@@ -93,11 +93,11 @@ export const ProjectGrid = () => {
             <div className="mt-12 pt-8 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="h-2 w-12 bg-blue-600 rounded-full group-hover:w-20 transition-all duration-500" />
-                <span className="text-sm font-black uppercase tracking-tighter text-black dark:text-white">
+                <span className="text-sm font-black uppercase tracking-tighter text-black! dark:text-white!">
                   Case Study
                 </span>
               </div>
-              <ArrowUpRight size={28} className="text-black dark:text-white group-hover:text-blue-600 transition-transform group-hover:scale-125" />
+              <ArrowUpRight size={28} className="text-black! dark:text-white! group-hover:text-blue-600 transition-transform group-hover:scale-125" />
             </div>
           </motion.a>
         ))}
