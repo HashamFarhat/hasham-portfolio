@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Zap, Globe, Activity, Smartphone, ShieldCheck, ArrowUpRight } from "lucide-react";
 
-// Case Study details mapped to IDs for the dynamic pages
+// FIX: Named export for the array is MANDATORY for the dynamic page to work
 export const projects = [
   { 
     id: "automation",
@@ -14,10 +14,10 @@ export const projects = [
     accent: "text-blue-600 bg-blue-50 dark:bg-blue-900/20 border-blue-600 dark:border-blue-800",
     glow: "group-hover:shadow-blue-500/40",
     details: {
-      problem: "Manual lead sorting was consuming 15+ hours weekly for clients.",
-      solution: "Engineered a multi-stage n8n pipeline with AI lead scoring and CRM sync.",
-      stack: ["n8n", "OpenAI", "Webhooks", "PostgreSQL"],
-      impact: "Automated 90% of data entry, saving 60 hours monthly."
+      problem: "Manual workflows were wasting 15+ hours weekly for business clients.",
+      solution: "Engineered multi-stage n8n agents for automated lead scoring and CRM updates.",
+      stack: ["n8n", "OpenAI", "PostgreSQL", "Webhooks"],
+      impact: "Saved 60+ hours monthly while increasing data accuracy."
     }
   },
   { 
@@ -30,10 +30,10 @@ export const projects = [
     accent: "text-red-600 bg-red-50 dark:bg-red-900/20 border-red-600 dark:border-red-800",
     glow: "group-hover:shadow-red-500/40",
     details: {
-      problem: "High production costs and time for faceless documentary niches.",
-      solution: "Developed an automated pipeline for script research and visual cues using Gemini API.",
-      stack: ["Gemini API", "Leonardo AI", "CapCut", "YouTube Data API"],
-      impact: "Scaled HF Creepspace production by 3x with zero extra overhead."
+      problem: "High production time for complex psychological documentaries.",
+      solution: "AI-driven script and visual pipeline for the brand HF Creepspace.",
+      stack: ["Gemini API", "Leonardo AI", "CapCut", "YouTube SEO"],
+      impact: "3x faster production and significant organic growth."
     }
   },
   { 
@@ -46,10 +46,10 @@ export const projects = [
     accent: "text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 border-emerald-600 dark:border-emerald-800",
     glow: "group-hover:shadow-emerald-500/40",
     details: {
-      problem: "Patients often miss critical medication timings leading to health risks.",
-      solution: "Built a React-based system with real-time Firebase notifications and health logging.",
-      stack: ["React", "Firebase", "Node.js", "Cloud Messaging"],
-      impact: "Achieved 100% notification accuracy for early-stage test users."
+      problem: "Patients missing critical medication schedules.",
+      solution: "React-based health dashboard with real-time Firebase notifications.",
+      stack: ["React", "Firebase", "Node.js", "Cloud Functions"],
+      impact: "100% adherence rate for primary test group."
     }
   },
   { 
@@ -62,10 +62,10 @@ export const projects = [
     accent: "text-purple-600 bg-purple-50 dark:bg-purple-900/20 border-purple-600 dark:border-purple-800",
     glow: "group-hover:shadow-purple-500/40",
     details: {
-      problem: "Need for cross-platform apps with native-level performance for startups.",
-      solution: "Implemented high-end architecture with optimized state management and API caching.",
-      stack: ["React Native", "Redux", "TypeScript", "Axios"],
-      impact: "Reduced app load times by 40% across Android and iOS devices."
+      problem: "Performance lag in cross-platform applications for resource-heavy tasks.",
+      solution: "Optimized React Native architecture with native bridge hooks.",
+      stack: ["React Native", "TypeScript", "Redux Toolkit", "Fastlane"],
+      impact: "Reduced app bundle size by 30% and improved startup time."
     }
   },
   { 
@@ -78,10 +78,10 @@ export const projects = [
     accent: "text-orange-600 bg-orange-50 dark:bg-orange-900/20 border-orange-600 dark:border-orange-800",
     glow: "group-hover:shadow-orange-500/40",
     details: {
-      problem: "Traditional kitchen safety alarms lack remote monitoring and AI prediction.",
-      solution: "Integrated gas sensors with a 2D React model for real-time risk visualization.",
-      stack: ["React", "C++", "Sensors", "Safety Logic"],
-      impact: "Successfully detected leaks in 2 seconds during university testing."
+      problem: "Delayed response in traditional kitchen fire alarms.",
+      solution: "Sensor-fused safety system with 2D React risk visualization.",
+      stack: ["React", "C++", "Sensors", "Arduino Logic"],
+      impact: "Achieved sub-2 second leak detection during testing."
     }
   }
 ];
@@ -102,28 +102,14 @@ export const ProjectGrid = () => {
                 <span className={`text-[11px] font-black uppercase tracking-widest px-5 py-2 rounded-full border-2 ${project.accent}`}>
                   {project.tag}
                 </span>
-                <div className={`${project.accent.split(' ')[0]} scale-125 opacity-100`}>
-                  {project.icon}
-                </div>
+                <div className={`${project.accent.split(' ')[0]} scale-125`}>{project.icon}</div>
               </div>
-              
-              <h3 className="text-4xl font-black tracking-tight mb-6 text-black! dark:text-white! leading-tight">
-                {project.title}
-              </h3>
-              
-              <p className="text-slate-900! dark:text-slate-200! leading-relaxed font-bold text-lg">
-                {project.desc}
-              </p>
+              <h3 className="text-4xl font-black text-black! dark:text-white! leading-tight mb-6">{project.title}</h3>
+              <p className="text-slate-900! dark:text-slate-200! font-bold text-lg leading-relaxed">{project.desc}</p>
             </div>
-            
-            <div className="mt-12 pt-8 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="h-2 w-12 bg-blue-600 rounded-full group-hover:w-20 transition-all duration-500" />
-                <span className="text-sm font-black uppercase tracking-tighter text-black! dark:text-white!">
-                  Case Study
-                </span>
-              </div>
-              <ArrowUpRight size={28} className="text-black! dark:text-white! group-hover:text-blue-600 transition-transform group-hover:scale-125" />
+            <div className="mt-12 flex items-center justify-between border-t border-slate-100 dark:border-white/5 pt-8">
+              <span className="text-sm font-black uppercase tracking-tighter text-black! dark:text-white!">View Case Study</span>
+              <ArrowUpRight size={28} className="text-black dark:text-white group-hover:text-blue-600 transition-transform group-hover:scale-125" />
             </div>
           </motion.a>
         ))}
