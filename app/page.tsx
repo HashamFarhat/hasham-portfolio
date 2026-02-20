@@ -3,10 +3,12 @@ import { About } from "@/components/About";
 import { TechMarquee } from "@/components/TechMarquee";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { Contact } from "@/components/Contact";
+import { ThemeToggle } from "@/components/ThemeToggle"; 
 
 export default function Home() {
   return (
-    <main className="bg-[#050505] min-h-screen selection:bg-blue-500/30">
+    <main className="bg-background min-h-screen transition-colors duration-300">
+      <ThemeToggle />
       <Hero />
       <About />
       <TechMarquee />
