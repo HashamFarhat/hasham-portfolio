@@ -62,10 +62,10 @@ export const projects = [
     accent: "text-purple-600 bg-purple-50 dark:bg-purple-900/20 border-purple-600 dark:border-purple-800",
     glow: "group-hover:shadow-purple-500/40",
     details: {
-      problem: "Performance lag in cross-platform applications for resource-heavy tasks.",
+      problem: "Performance lag in cross-platform applications.",
       solution: "Optimized React Native architecture with native bridge hooks.",
       stack: ["React Native", "TypeScript", "Redux Toolkit", "Fastlane"],
-      impact: "Reduced app bundle size by 30% and improved startup time."
+      impact: "Reduced app load times by 40%."
     }
   },
   { 
@@ -81,7 +81,7 @@ export const projects = [
       problem: "Delayed response in traditional kitchen fire alarms.",
       solution: "Sensor-fused safety system with 2D React risk visualization.",
       stack: ["React", "C++", "Sensors", "Arduino Logic"],
-      impact: "Achieved sub-2 second leak detection during testing."
+      impact: "Sub-2 second leak detection."
     }
   }
 ];
